@@ -1,0 +1,76 @@
+{
+  "name": "genpark-agentic-commerce-brand-map-enforcement-crawler-skill",
+  "version": "1.0.0",
+  "title": "Brand Minimum Advertised Price (MAP) Automated Compliance Sentinel Skill",
+  "description": "Minimum Advertised Price (MAP) crawling discrepancy parser, rogue unauthorized seller price erosion tracker, and automated violation notice drafting. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "agentic-commerce",
+  "topics": [
+    "map-compliance",
+    "price-monitoring",
+    "brand-protection",
+    "unauthorized-resellers",
+    "agentic-commerce",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "audit_reseller_map_violations",
+      "description": "Detect listings selling below contracted MAP floor price and quantify brand price erosion margin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product_sku": {
+            "type": "string"
+          },
+          "map_floor_price_usd": {
+            "type": "number"
+          },
+          "observed_listings": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          }
+        },
+        "required": [
+          "product_sku",
+          "map_floor_price_usd",
+          "observed_listings"
+        ]
+      }
+    },
+    {
+      "name": "generate_automated_cease_and_desist_map_notice",
+      "description": "Draft automated MAP violation notice with timestamped evidence and cure window for unauthorized distributor.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchant_name": {
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "violation_price_usd": {
+            "type": "number"
+          },
+          "map_floor_usd": {
+            "type": "number"
+          },
+          "marketplace": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "merchant_name",
+          "sku",
+          "violation_price_usd",
+          "map_floor_usd"
+        ]
+      }
+    }
+  ]
+}
